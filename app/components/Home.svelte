@@ -1,27 +1,34 @@
-<page>
-    <actionBar title="Home" />
-    <gridLayout>
-        <label class="info">
-            <formattedString>
-                <span class="fas" text="&#xf135;" />
-                <span text=" {message}" />
-            </formattedString>
-        </label>
-    </gridLayout>
-</page>
-
 <script lang="ts">
-    let message: string = "Blank Svelte Native App"
+    let firstname = "";
+    let lastname = "";
+
+    let textViewValue = "Tiago Rodrigues"
+
+    function insert(textViewValue) {
+        // insert
+    }
+
+    function select() {
+        // select
+    }
 </script>
 
-<style>
-    .info .fas {
-        color: #3A53FF;
-    }
+<page>
+    <stackLayout>
+        <textField id="firstname" hint="Nome" text="{firstname}" />
+        <textField id="lastname" hint="Sobrenome" text="{lastname}" />
+        <stackLayout orientation="horizontal">
+            <button text="Insert" tap="{insert}" />
+            <button text="Select" tap="{select}" />
+        </stackLayout>
+        <stackLayout>
+            <textView editable="{false}" bind:text="{textViewValue}" />
+        </stackLayout>
+    </stackLayout>
+</page>
 
-    .info {
-        font-size: 20;
-        horizontal-align: center;
-        vertical-align: center;
-    }
+
+
+<style>
+
 </style>
