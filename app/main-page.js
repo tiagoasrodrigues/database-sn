@@ -1,11 +1,14 @@
 // Sqlite
 
+var createViewModel = require("./main-view-model").createViewModel;
+var Sqlite = require("nativescript-sqlite");
+
 function onNavigatingTo(args) {
     var page = args.object;
-    if (!Sqlite.exists("people.db")) {
-        Sqlite.copyDatabase("people.db");
+    if (!Sqlite.exists("populated.db")) {
+        Sqlite.copyDatabase("populated.db");
     }
-    (new Sqlite("people.db")).then(db => {
+    (new Sqlite("populated.db")).then(db => {
         database = db;
         db.execSQL("CREATE TABLE IF NOT EXISTS people (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT)").then(id => {
             page.bindingContext = createViewModel(db);
@@ -17,28 +20,30 @@ function onNavigatingTo(args) {
     });
 }
 
+exports.onNavigatingTo = onNavigatingTo;
+
 // Couchbase
 
-var couchbaseModule = require("nativescript-couchbase");
-var database = new couchbaseModule.Couchbase("test-database");
+// var couchbaseModule = require("nativescript-couchbase");
+// var database = new couchbaseModule.Couchbase("test-database");
 
-var documentId = database.createDocument({
-    "firstname": "Tiago",
-    "lastname": "Rodrigues",
-    "address": {
-        "city": "São Paulo",
-        "state": "SP",
-        "country": "BRA"
-    },
-    "twitter": "https://www.twitter.com/tiagoasrodrigs"
-});
+// var documentId = database.createDocument({
+//     "firstname": "Tiago",
+//     "lastname": "Rodrigues",
+//     "address": {
+//         "city": "São Paulo",
+//         "state": "SP",
+//         "country": "BRA"
+//     },
+//     "twitter": "https://www.twitter.com/tiagoasrodrigs"
+// });
 
-var person = database.getDocument(documentId);
+// var person = database.getDocument(documentId);
 
-database.updateDocument(documentId, {
-    "firstname": "Tiago",
-    "lastname": "Augusto",
-    "twitter": "https://www.twitter.com/tiagoasrodrigs"
-});
+// database.updateDocument(documentId, {
+//     "firstname": "Tiago",
+//     "lastname": "Augusto",
+//     "twitter": "https://www.twitter.com/tiagoasrodrigs"
+// });
 
-var isDeleted = database.deleteDocument(documentId);
+// var isDeleted = database.deleteDocument(documentId);

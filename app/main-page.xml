@@ -1,17 +1,4 @@
-<script lang="ts">
-    let firstname = "";
-    let lastname = "";
-
-    function insert() {
-        // insert
-    }
-
-    function select() {
-        // select
-    }
-</script>
-
-<page>
+<page xmlns="https://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
     <stackLayout>
         <textField id="firstname" hint="Nome" text="{firstname}" />
         <textField id="lastname" hint="Sobrenome" text="{lastname}" />
@@ -21,7 +8,3 @@
         </stackLayout>
     </stackLayout>
 </page>
-
-<style>
-
-</style>
