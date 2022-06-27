@@ -9,6 +9,7 @@
     function select() {
         // select
     }
+
 </script>
 
 <page>
