@@ -6,7 +6,6 @@
   "dependencies": {
     "@nativescript/core": "~8.2.0",
     "@nativescript/theme": "~3.0.2",
-    "nativescript-sqlite": "^2.8.6",
     "svelte-native": "~1.0.0"
   },
   "devDependencies": {
