@@ -1,5 +1,3 @@
-Couchbase
-
 var couchbaseModule = require("nativescript-couchbase");
 var database = new couchbaseModule.Couchbase("test-database");
 

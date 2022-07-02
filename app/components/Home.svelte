@@ -3,22 +3,23 @@
     let lastname = "";
 
     function insert() {
-        // insert
+        
     }
 
     function select() {
-        // select
+
     }
 
 </script>
 
 <page>
+    <actionBar title="MyApp" />
     <stackLayout>
         <textField id="firstname" hint="Nome" text="{firstname}" />
         <textField id="lastname" hint="Sobrenome" text="{lastname}" />
         <stackLayout orientation="horizontal">
-            <button text="Insert" tap="{insert}" />
-            <button text="Select" tap="{select}" />
+            <button text="Inserir" tap="{insert}" />
+            <button text="Selecionar" tap="{select}" />
         </stackLayout>
     </stackLayout>
 </page>
